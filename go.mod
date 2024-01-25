@@ -1,3 +1,3 @@
-module micro-redis
+module github.com/heilkit/microredis
 
 go 1.21
