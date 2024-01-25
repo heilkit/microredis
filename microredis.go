@@ -39,8 +39,8 @@ func (db *MicroRedis[Key, Value]) Get(key Key) *Value {
 }
 
 func (db *MicroRedis[Key, Value]) Set(key Key, val Value) {
-	db.sync.RLock()
-	defer db.sync.RUnlock()
+	db.sync.Lock()
+	defer db.sync.Unlock()
 
 	k := db.key(&key)
 	db.data[k] = val
